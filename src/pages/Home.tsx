@@ -18,13 +18,19 @@ const Home = () => {
           transition={{ duration: 0.5 }}
         >
           <p>
-            L'enseignante: <b className=" font-semibold">SAADI Zina</b>
+            Direction de l’éducation: <b className=" font-semibold">Wilaya de M’sila</b>
+          </p>
+          <p>
+            L'école: <b className=" font-semibold">KABKOUB Mohamed</b>
           </p>
           <p>
             Cours: <b className=" font-semibold">5ème année primaire </b>
           </p>
           <p>
             Année scolaire: <b className=" font-semibold">2025/2026</b>
+          </p>
+          <p>
+            L'enseignante: <b className=" font-semibold">SAADI Zina</b>
           </p>
         </motion.div>
       </div>
