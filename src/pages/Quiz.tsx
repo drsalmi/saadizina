@@ -15,6 +15,8 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { SiRevealdotjs } from "react-icons/si";
 import { LuRefreshCcw } from "react-icons/lu";
+import { FcHome } from "react-icons/fc";
+import { FiHome } from "react-icons/fi";
 
 const TIMER_DURATION = 10;
 
@@ -127,6 +129,9 @@ const Quiz = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 gap-8">
+      <button className="fixed top-4 left-4 z-10" onClick={() => navigate("/")}>
+        <FiHome className=" text-yellow-600 size-10  transition-all hover:size-12 opacity-50 hover:opacity-100" />
+      </button>
       {/* Timer */}
       <Timer timeLeft={timeLeft} totalTime={TIMER_DURATION} progress={progress} />
 
@@ -213,8 +218,8 @@ const Quiz = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <AnimatedButton
-                  text="Recommencer le timer"
-                  actionText="Recommencer le timer"
+                  text="Recommencer le temps"
+                  actionText="Recommencer le temps"
                   icon={<LuRefreshCcw className="size-10" />}
                   theme="blue"
                   orientation="horizontal"
@@ -240,7 +245,7 @@ const Quiz = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="text-sm text-muted-foreground text-center mt-4"
+        className="text-sm text-muted-foreground text-center mt-4 hidden md:block"
       >
         Raccourcis : Espace = Afficher | ← → = Navigation | R = Reset | 1 = Vrai | 2 = Faux
       </motion.div>
