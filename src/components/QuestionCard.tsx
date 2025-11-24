@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 import { Question } from "@/data/questions";
+
+const images = {
+  1: "/illustrations/1.svg",
+  2: "/illustrations/2.svg",
+  3: "/illustrations/3.svg",
+  4: "/illustrations/4.svg",
+}
+
 interface QuestionCardProps {
   question: Question;
   currentQuestionIndex: number;
@@ -30,5 +38,9 @@ export const QuestionCard = ({
     <p className="text-2xl md:text-4xl text-center font-semibold text-foreground leading-relaxed">
       {question.text}
     </p>
+
+    <div className="mt-8">
+      <img src={images[question.id]} className="w-auto max-h-[400px] block mx-auto" alt="" />
+    </div>
   </motion.div>;
 };

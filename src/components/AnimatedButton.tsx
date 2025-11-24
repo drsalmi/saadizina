@@ -101,7 +101,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         <button
             onClick={onClick}
             className={`
-                relative group border-0 bg-transparent cursor-pointer w-[220px] h-[80px] outline-none
+                relative group border-0 bg-transparent cursor-pointer w-[220px] h-[60px] sm:h-[80px] outline-none
                 ${isInclined ? 'rotate-[353deg] skew-x-[4deg]' : ''}
                 ${className}
             `}

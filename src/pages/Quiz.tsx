@@ -186,25 +186,25 @@ const Quiz = () => {
           </>
         ) : (
           <>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="grid grid-cols-1 md:gap-14 gap-4 w-full mb-4"
+            <div
+              className="fixed left-auto right-0 top-1/2 h-auto w-full sm:w-sm opacity-30 md:top-1/4"
             >
               {currentQuestion.correct === 'vrai' ? (
                 <DotLottieReact
                   src="/vrai.lottie"
                   loop
                   autoplay
+                  className="w-full h-full"
                 />
               ) : (
                 <DotLottieReact
                   src="/faux.lottie"
                   loop
                   autoplay
+                  className=""
                 />
               )}
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 10 }}
