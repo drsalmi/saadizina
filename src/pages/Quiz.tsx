@@ -187,7 +187,7 @@ const Quiz = () => {
         ) : (
           <>
             <div
-              className="fixed left-auto right-0 top-1/2 h-auto w-full sm:w-sm opacity-30 md:top-1/4"
+              className="fixed left-auto right-0 top-1/2 h-auto w-full sm:w-sm opacity-40 md:top-1/4"
             >
               {currentQuestion.correct === 'vrai' ? (
                 <DotLottieReact

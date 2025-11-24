@@ -17,21 +17,28 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p>
-            Direction de l’éducation: <b className=" font-semibold">Wilaya de M’sila</b>
-          </p>
-          <p>
-            L'école: <b className=" font-semibold">KABKOUB Mohamed</b>
-          </p>
-          <p>
-            Cours: <b className=" font-semibold">5ème année primaire </b>
-          </p>
-          <p>
-            Année scolaire: <b className=" font-semibold">2025/2026</b>
-          </p>
-          <p>
-            L'enseignante: <b className=" font-semibold">SAADI Zina</b>
-          </p>
+          <div className="flex w-full justify-between text-orange-900">
+            <div className="text-start">
+              <p>
+                enseignante: <b className=" font-semibold">SAADI Zina</b>
+              </p>
+              <p>
+                cours: <b className=" font-semibold">5ème année primaire </b>
+              </p>
+            </div>
+            <div className="text-end">
+              <p>
+                direction de l’éducation: <b className=" font-semibold">Wilaya de M’sila</b>
+              </p>
+              <p>
+                école: <b className=" font-semibold">KABKOUB Mohamed</b>
+              </p>
+              <p>
+                année scolaire: <b className=" font-semibold">2025/2026</b>
+              </p>
+            </div>
+          </div>
+
         </motion.div>
       </div>
       <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
@@ -143,13 +150,13 @@ const Home = () => {
           </motion.div>
 
           <motion.p
-            className=" fixed bottom-4 left-1/2 transform -translate-x-1/2 text-muted-foreground text-xs md:text-sm"
+            className=" fixed bottom-4  right-6 text-muted-foreground text-xs md:text-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            <span className="opacity-0">
-              Fait avec ❤️ pour Mle: SAADI Zina
+            <span className="">
+              fait avec ❤️
             </span>
           </motion.p>
         </motion.div>
