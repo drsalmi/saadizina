@@ -37,11 +37,11 @@ All colors MUST be HSL.
     --ring: 30 100% 60%;
 
     --radius: 1rem;
-    
+
     --success: 140 60% 55%;
     --warning: 30 100% 60%;
     --danger: 0 75% 60%;
-    
+
     --timer-low: 30 100% 60%;
     --timer-critical: 0 75% 60%;
 
@@ -87,6 +87,7 @@ All colors MUST be HSL.
       transform: translateY(0) rotate(0deg);
       opacity: 1;
     }
+
     100% {
       transform: translateY(100vh) rotate(720deg);
       opacity: 0;
@@ -94,9 +95,12 @@ All colors MUST be HSL.
   }
 
   @keyframes bounce-gentle {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-10px);
     }
@@ -107,9 +111,12 @@ All colors MUST be HSL.
   }
 
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
@@ -118,4 +125,122 @@ All colors MUST be HSL.
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+
+  /* Custom Keyframes extracted from original design */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes charAppear {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+      filter: blur(20px);
+    }
+
+    20% {
+      transform: translateY(70%);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(-15%);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes charDisappear {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-70%);
+      opacity: 0;
+      filter: blur(3px);
+    }
+  }
+
+  @keyframes arrowFly {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateX(60px);
+      opacity: 0;
+    }
+
+    51% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(-128px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes swingArrow {
+    50% {
+      transform: translateX(5px) scale(0.9);
+    }
+  }
+
+  @keyframes resetArrow {
+    0% {
+      transform: translateX(-128px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Utility classes for animations */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .animate-char-appear {
+    animation: charAppear 1.2s ease backwards;
+  }
+
+  .animate-char-appear-fast {
+    animation: charAppear 0.7s ease backwards;
+  }
+
+  .animate-char-disappear {
+    animation: charDisappear 0.7s ease forwards;
+  }
+
+  .animate-arrow-fly {
+    animation: arrowFly 1s cubic-bezier(0.7, -0.5, 0.3, 1.5) forwards;
+  }
+
+  .animate-arrow-reset {
+    animation: resetArrow 0.8s cubic-bezier(0.7, -0.5, 0.3, 1.2) forwards;
+  }
+
+  .animate-swing {
+    animation: swingArrow 1s ease-in-out infinite;
+  }
+
+  /* Base styles */
+  body {}
 }

@@ -7,13 +7,13 @@ export interface Question {
 export const questions: Question[] = [
   {
     id: 1,
-    text: "Le fennec vit dans le désert.",
-    correct: "vrai",
+    text: "Massinissa a de mauvais souvenirs de ses vacances.",
+    correct: "faux",
   },
   {
     id: 2,
-    text: "Massinissa a de mauvais souvenirs de ses vacances.",
-    correct: "faux",
+    text: "Le fennec vit dans le désert.",
+    correct: "vrai",
   },
   {
     id: 3,

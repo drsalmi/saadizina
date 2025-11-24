@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ResultConfetti } from "@/components/ResultConfetti";
 import { Home, RotateCcw } from "lucide-react";
+import { FaHome } from "react-icons/fa";
+import AnimatedButton from "@/components/AnimatedButton";
 
 const Finish = () => {
   const navigate = useNavigate();
@@ -57,38 +59,39 @@ const Finish = () => {
           transition={{ delay: 0.4 }}
         >
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
-            Félicitations pour avoir complété toutes les questions sur le fennec ! 
+            Félicitations pour avoir complété toutes les questions sur le fennec !
             Tu as appris plein de choses sur cet animal fascinant du désert.
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center mt-10 px-2"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="sm:flex-1">
+            <AnimatedButton
+              text="Recommencer le quiz"
+              actionText="Recommencer le quiz"
+              icon={<RotateCcw className="size-10" />}
+              theme="emerald"
+              orientation="horizontal"
               onClick={() => navigate("/quiz")}
-              size="lg"
-              className="text-xl h-16 px-8 rounded-2xl font-semibold shadow-lg bg-primary hover:bg-primary/90"
-            >
-              <RotateCcw className="mr-2 h-6 w-6" />
-              Recommencer le quiz
-            </Button>
+              className="w-full"
+            />
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="sm:flex-1">
+            <AnimatedButton
+              text="Retour à l'accueil"
+              actionText="Retour à l'accueil"
+              icon={<FaHome className="size-10" />}
+              theme="blue"
+              orientation="horizontal"
               onClick={() => navigate("/")}
-              size="lg"
-              variant="secondary"
-              className="text-xl h-16 px-8 rounded-2xl font-semibold shadow-lg"
-            >
-              <Home className="mr-2 h-6 w-6" />
-              Retour à l'accueil
-            </Button>
+              className="w-full"
+            />
           </motion.div>
         </motion.div>
       </motion.div>

@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { LuCirclePlay } from "react-icons/lu";
+import ReactBubblyEffectButton from "react-bubbly-effect-button";
+import AnimatedButton from '@/components/AnimatedButton';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -42,16 +44,25 @@ const Home = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-8"
         >
-          <h1 className="text-5xl md:text-8xl font-bold text-primary mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-8xl font-bold text-primary mb-4 drop-shadow-lg">
             Quiz Vrai ou Faux
           </h1>
-          <p className="text-3xl md:text-5xl text-foreground/80 font-medium">
+          <p className="text-xl md:text-5xl text-foreground/80 font-medium">
             CE3 - Testez vos connaissances !
           </p>
         </motion.div>
 
+        <motion.p
+          className="my-6 mb-8  text-muted-foreground text-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          4 questions vous attendent !
+        </motion.p>
+
         <motion.div
-          className="text-7xl mb-8 mt-6"
+          className="text-7xl mb-12 mt-6"
           animate={{
             y: [0, -15, 0],
           }}
@@ -71,25 +82,29 @@ const Home = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <button
+          {/* <button
             onClick={() => navigate("/quiz")}
-            className="text-4xl inline-flex text-white items-center h-20 px-16 rounded-full shadow-2xl bg-primary hover:bg-primary/90 font-semibold"
+            className="text-xl md:text-3xl inline-flex text-white items-center h-16 md:h-20 px-8 md:px-16 rounded-full shadow-2xl bg-primary hover:bg-primary/90 font-semibold"
           >
             <LuCirclePlay className="mr-5  size-10" />
             Commencer le Quiz
-          </button>
+          </button> */}
+
+          <AnimatedButton
+            text="Commencer le Quiz"
+            actionText="Prêt ?"
+            icon={<LuCirclePlay className="size-10" />}
+            theme="amber"
+            orientation="inclined"
+            onClick={() => navigate("/quiz")}
+            className="w-[300px]"
+          />
+
         </motion.div>
 
+
         <motion.p
-          className="mt-12 text-muted-foreground text-2xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          4 questions sur le fennec vous attendent !
-        </motion.p>
-        <motion.p
-          className=" fixed bottom-4 left-1/2 transform -translate-x-1/2 text-muted-foreground text-sm"
+          className=" fixed bottom-4 left-1/2 transform -translate-x-1/2 text-muted-foreground text-xs md:text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}

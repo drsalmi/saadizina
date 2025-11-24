@@ -10,6 +10,11 @@ import { useTimer } from "@/hooks/useTimer";
 import { useSound } from "@/hooks/useSound";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { RotateCcw } from "lucide-react";
+import AnimatedButton from "@/components/AnimatedButton";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { SiRevealdotjs } from "react-icons/si";
+import { LuRefreshCcw } from "react-icons/lu";
 
 const TIMER_DURATION = 10;
 
@@ -54,7 +59,7 @@ const Quiz = () => {
   const handleAnswerSelect = (answer: "vrai" | "faux") => {
     setSelectedAnswer(answer);
     handleShowAnswer();
-    
+
     if (answer === currentQuestion.correct) {
       correctSound.play();
     } else {
@@ -135,40 +140,48 @@ const Quiz = () => {
       </AnimatePresence>
 
       {/* Answer Buttons or Navigation */}
-      <div className="flex flex-col gap-4 items-center w-full max-w-2xl">
+      <div className="flex flex-col gap-4 md:gap-12 justify-between items-center w-full max-w-2xl px-4">
         {!showAnswer ? (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-14 w-full">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
+                <AnimatedButton
+                  text="Vrai"
+                  actionText="Tu es sûr?"
+                  icon={<FaRegCircleCheck className="size-10" />}
+                  theme="emerald"
+                  orientation="horizontal"
                   onClick={() => handleAnswerSelect("vrai")}
-                  size="lg"
-                  className="w-full text-2xl h-20 rounded-2xl font-bold shadow-lg bg-primary hover:bg-primary/90"
-                >
-                  ✓ Vrai
-                </Button>
+                  className="w-full"
+
+                />
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
+                <AnimatedButton
+                  text="Faux"
+                  actionText="Tu es sûr?"
+                  icon={<FaRegCircleCheck className="size-10" />}
+                  theme="rose"
+                  orientation="horizontal"
                   onClick={() => handleAnswerSelect("faux")}
-                  size="lg"
-                  className="w-full text-2xl h-20 rounded-2xl font-bold shadow-lg bg-destructive hover:bg-destructive/90"
-                >
-                  ✗ Faux
-                </Button>
+                  className="w-full"
+
+                />
               </motion.div>
             </div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full">
-              <Button
-                onClick={handleShowAnswer}
-                size="lg"
-                variant="secondary"
-                className="w-full text-xl h-16 rounded-2xl font-semibold shadow-lg"
-              >
-                Afficher la réponse
-              </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full px-0">
+
+              <AnimatedButton
+                text="Afficher la réponse"
+                actionText="Afficher la réponse"
+                icon={<SiRevealdotjs className="size-10" />}
+                theme="blue"
+                orientation="horizontal"
+                onClick={() => handleShowAnswer()}
+                className="w-full"
+              />
             </motion.div>
           </>
         ) : (
@@ -176,25 +189,21 @@ const Quiz = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-4"
+              className="grid grid-cols-1 md:gap-14 gap-4 w-full mb-4"
             >
-              <Button
-                size="lg"
-                disabled
-                variant={getAnswerButtonVariant("vrai")}
-                className={`w-full text-2xl h-20 rounded-2xl font-bold shadow-lg transition-all ${getAnswerButtonClasses("vrai")}`}
-              >
-                ✓ Vrai
-              </Button>
-
-              <Button
-                size="lg"
-                disabled
-                variant={getAnswerButtonVariant("faux")}
-                className={`w-full text-2xl h-20 rounded-2xl font-bold shadow-lg transition-all ${getAnswerButtonClasses("faux")}`}
-              >
-                ✗ Faux
-              </Button>
+              {currentQuestion.correct === 'vrai' ? (
+                <DotLottieReact
+                  src="/vrai.lottie"
+                  loop
+                  autoplay
+                />
+              ) : (
+                <DotLottieReact
+                  src="/faux.lottie"
+                  loop
+                  autoplay
+                />
+              )}
             </motion.div>
 
             <motion.div
@@ -203,15 +212,15 @@ const Quiz = () => {
               className="w-full mb-4"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  onClick={handleResetTimer}
-                  size="lg"
-                  variant="outline"
-                  className="w-full text-lg h-14 rounded-2xl font-semibold"
-                >
-                  <RotateCcw className="mr-2 h-5 w-5" />
-                  Recommencer le timer
-                </Button>
+                <AnimatedButton
+                  text="Recommencer le timer"
+                  actionText="Recommencer le timer"
+                  icon={<LuRefreshCcw className="size-10" />}
+                  theme="blue"
+                  orientation="horizontal"
+                  onClick={() => handleResetTimer()}
+                  className="w-full"
+                />
               </motion.div>
             </motion.div>
 
