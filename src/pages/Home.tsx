@@ -142,7 +142,9 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Fait avec ❤️ pour Mle: SAADI Zina
+            <span className="opacity-0">
+              Fait avec ❤️ pour Mle: SAADI Zina
+            </span>
           </motion.p>
         </motion.div>
       </div>
